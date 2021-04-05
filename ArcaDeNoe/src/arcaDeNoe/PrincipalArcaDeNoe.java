@@ -1,3 +1,9 @@
+/*
+ * Pogramación interactiva
+ * Autor: Diego Fabián Ledesma - 1928161
+ * Miniproyecto 2: Arca de Noe.
+ */
+
 package arcaDeNoe;
 
 public class PrincipalArcaDeNoe {
