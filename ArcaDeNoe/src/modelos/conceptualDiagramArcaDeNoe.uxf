@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>10</x>
-      <y>40</y>
+      <x>20</x>
+      <y>10</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
@@ -18,47 +18,60 @@ main()</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>10</x>
-      <y>140</y>
-      <w>210</w>
-      <h>70</h>
+      <x>20</x>
+      <y>100</y>
+      <w>200</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>GUIArcaDeNoe
 --
 --
-iniciarJuego()</panel_attributes>
+iniciarJuego()
+nuevaRonda()
+mostrarEstadisticas()
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>110</x>
-      <y>100</y>
+      <x>120</x>
+      <y>70</y>
       <w>30</w>
-      <h>60</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>290</x>
-      <y>140</y>
-      <w>210</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>ControlArcaDeNoe
---
---
-iniciarJuego()</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>350</x>
-      <y>280</y>
+      <y>30</y>
+      <w>280</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>ControlArcaDeNoe
+--
+cartas: Integer[]
+ronda: int
+cantidadCartas: int
+estadisticas: Integer[]
+--
+nuevoJuego()
+nuevaRonda()
+acierto()
+fallo()
+estadisticas()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>250</y>
       <w>250</w>
       <h>170</h>
     </coordinates>
@@ -68,60 +81,65 @@ numMaxCartasDiferentes: int
 
 cartas: Integer[]
 aleatorio: Random
-cartasNoRepetidas: Integer[]
 cartasRepetidas: Integer[]
 --
-Integer[] nuevasCartas(): </panel_attributes>
+Integer[] nuevasCartas(int numCartas): </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>210</x>
-      <y>170</y>
-      <w>100</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>460</x>
-      <y>200</y>
-      <w>40</w>
+      <y>60</y>
+      <w>160</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;80.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>200</y>
+      <w>40</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>90</x>
-      <y>260</y>
-      <w>210</w>
-      <h>70</h>
+      <x>100</x>
+      <y>230</y>
+      <w>220</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>Carta
 --
+idCarta: int
+estaBocaArriba: boolean
+haSidoVista: boolean
 --
-voltear()</panel_attributes>
+voltear()
+deshabilitar()
+getId()
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>190</x>
-      <y>200</y>
-      <w>120</w>
+      <x>200</x>
+      <y>170</y>
+      <w>40</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>100.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
 </diagram>
