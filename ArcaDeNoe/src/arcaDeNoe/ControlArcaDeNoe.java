@@ -1,11 +1,15 @@
 /* Pogramación interactiva
  * Autor: Diego Fabián Ledesma - 1928161
  * Miniproyecto 2: Arca de Noe.
+ * Imágenes tomadas de: https://www.unobrain.com/juegos-de-memoria/elarcadenoe/
  */
 
 package arcaDeNoe;
 
-
+/*ControlArcaDeNoe se encarga de gestionar el aumento de cartas en juego y
+ * solicitarle a SelectorCartas generar arreglos aleatorios de números que permitirán asignar las imágenes a las cartas
+ * en cada ronda. Adicionalmente, esta clase gestiona las estadísticas del juego, las cuales cambian 
+ * según el jugador acierte o falle, o si se inicia un nuevo juego.*/
 public class ControlArcaDeNoe {
     //Atributos:
         //Constantes:
@@ -16,14 +20,15 @@ public class ControlArcaDeNoe {
     private Integer[] cartas;
     private int ronda;
     private int cantidadCartas;
-    private int puntos;        //la variable puntos siempre es mayor o igual a cero.
+    private int puntos;        //la variable puntos siempre es mayor o igual a cero. 
     private int aciertos;
     private int fallos;
     private Integer[] estadisticas;
 
     
-    
     //Metodos:
+    
+    //Constructor
     public ControlArcaDeNoe() {
         selector = new SelectorCartas();
         cantidadInicialCartas = 4;
@@ -36,19 +41,19 @@ public class ControlArcaDeNoe {
         estadisticas = new Integer[3];
     }
     
-    /*Reestablece los valores necesarios para iniciar un nuevo juego. No es necesario acudir a este método la primera
-     * vez que se juega tras iniciar la ejecución del programa.*/    
+    /*Reestablece los valores necesarios para iniciar un nuevo juego.*/    
     public Integer[] nuevoJuego() {        
         ronda = 1;
         cantidadCartas = cantidadInicialCartas;
         puntos = 0;
         aciertos = 0;
         fallos = 0;
-        this.nuevaRonda();
+        cartas = selector.NuevasCartas(4);
         return cartas;
     }
     
-    /*Nueva ronda genera nuevas cartas sin alterar los valores de puntos, aciertos y fallos.*/
+    /*nuevaRonda() genera nuevas cartas sin alterar los valores de puntos, aciertos y fallos. 
+     * También aumenta en 2 la cantidad de cartas, hasta un máximo de 12.*/
     public Integer[] nuevaRonda() {
         if (cantidadCartas == 12) {
             //cantidadCartas permanece igual
@@ -59,24 +64,21 @@ public class ControlArcaDeNoe {
         return cartas;
     }
     
-    /*Aumenta el punto y el aciertos correspondiente, y retorna los puntos actualizados*/
-    public int acierto() {
+    /*Aumenta el punto y el acierto correspondiente, y retorna los puntos actualizados*/
+    public void acierto() {
         aciertos++;
         puntos++;
-        return puntos;
     }
     
-    /*Resta el puntos y el fallo correspondiente, y retorna los puntos actualizados*/
-    public int fallo() {
+    /*Resta el punto y aumenta el fallo correspondiente*/
+    public void fallo() {
         fallos++;
-        
+        //No puede tenerse una cantidad negativa de puntos.
         if (puntos == 0) {
             //Permanece en cero puntos.
         } else {
             puntos--;
         }
-        
-        return puntos;
     }
     
     
@@ -85,9 +87,6 @@ public class ControlArcaDeNoe {
         estadisticas = new Integer[] {aciertos, fallos, puntos};
         return estadisticas;
     }
-    
-    
-    
     
     
     public int getCantidadCartas() {
@@ -101,8 +100,6 @@ public class ControlArcaDeNoe {
     public int getRonda() {
         return ronda;
     }
-    
-
 }
 
 

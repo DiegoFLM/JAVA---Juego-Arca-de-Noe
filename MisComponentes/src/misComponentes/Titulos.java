@@ -14,7 +14,7 @@ public class Titulos extends JLabel {
 		Font font = new Font(Font.SERIF, Font.BOLD + Font.ITALIC, tamano);
 		this.setFont(font);
 		this.setBackground(colorFondo);
-		this.setForeground(Color.WHITE);
+		this.setForeground(Color.green);
 		this.setHorizontalAlignment(JLabel.CENTER);
 		this.setOpaque(true);
 	}
